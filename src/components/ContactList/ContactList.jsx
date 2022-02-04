@@ -6,16 +6,20 @@ import { ContactListWrapper } from './ContactList.styled';
 const ContactList = ({ contacts, onDeleteContact }) => {
   return (
     <ContactListWrapper>
-      {contacts.map(({ id, name, number }) => (
-        <li key={id}>
-          <ContactListItem
-            id={id}
-            name={name}
-            number={number}
-            onDelete={onDeleteContact}
-          />
-        </li>
-      ))}
+      {contacts.length > 0 ? (
+        contacts.map(({ id, name, number }) => (
+          <li key={id}>
+            <ContactListItem
+              id={id}
+              name={name}
+              number={number}
+              onDelete={onDeleteContact}
+            />
+          </li>
+        ))
+      ) : (
+        <p>You don't have contacts yet...</p>
+      )}
     </ContactListWrapper>
   );
 };

@@ -10,10 +10,6 @@ const Filter = ({ value, onChangeFilter }) => {
     </FilterWrapper>
   );
 };
-Filter.protoType = {
-  value: PropTypes.string,
-  onChangeFilter: PropTypes.func.isRequired,
-};
 
 const mapStateToProps = state => ({
   value: state.contacts.filter,
@@ -24,3 +20,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filter);
+
+Filter.protoType = {
+  value: PropTypes.string,
+  onChangeFilter: PropTypes.func.isRequired,
+};

@@ -1,26 +1,26 @@
+import toast from 'react-hot-toast';
 import { combineReducers } from 'redux';
-import { ADD_CONTACT, DELETE_CONTACT, FILTER_CONTACTS } from './contacts-types';
+import { createReducer } from '@reduxjs/toolkit';
+import { addContact, deleteContact, changeFilter } from './contacts-actions';
 
 // всі операції, видалити, фільтрувати тут!!!
 
-const items = (state = [], { type, payload }) => {
-  switch (type) {
-    case ADD_CONTACT:
-      return [...state, payload];
-    case DELETE_CONTACT:
-      return state.filter(({ id }) => id !== payload);
-    default:
-      return state;
-  }
-};
-
-const filter = (state = '', { type, payload }) => {
-  switch (type) {
-    case FILTER_CONTACTS:
-      return payload;
-    default:
-      return state;
-  }
-};
-
+const items = createReducer([], {
+  [addContact]: (state, { payload }) => {
+    if (
+      state.find(
+        contact => contact.name.toLowerCase() === payload.name.toLowerCase()
+      )
+    ) {
+      toast.error(`${payload.name} is already in contacts.`);
+      return;
+    }
+    return [...state, payload];
+  },
+  [deleteContact]: (state, { payload }) =>
+    state.filter(({ id }) => id !== payload),
+});
+const filter = createReducer('', {
+  [changeFilter]: (_, { payload }) => payload,
+});
 export default combineReducers({ items, filter });
