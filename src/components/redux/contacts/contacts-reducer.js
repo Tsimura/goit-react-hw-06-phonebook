@@ -2,9 +2,6 @@ import toast from 'react-hot-toast';
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import { addContact, deleteContact, changeFilter } from './contacts-actions';
-
-// всі операції, видалити, фільтрувати тут!!!
-
 const items = createReducer([], {
   [addContact]: (state, { payload }) => {
     if (

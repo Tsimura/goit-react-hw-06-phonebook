@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ContactListItem from '../ContactListItem/ContactListItem';
+import ContactListItem from '../ContactListItem';
 import { deleteContact } from '../redux/contacts/contacts-actions';
 import { ContactListWrapper } from './ContactList.styled';
 const ContactList = ({ contacts, onDeleteContact }) => {

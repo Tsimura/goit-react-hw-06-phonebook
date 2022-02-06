@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { connect } from 'react-redux';
 import { addContact } from '../redux/contacts/contacts-actions';
 import { Form } from './ContactForm.styled';
-
 function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
   const nameInputId = shortid.generate();
   const numberInputId = shortid.generate();
-
   const handleChange = event => {
     const { name, value } = event.target;
     switch (name) {
@@ -24,18 +22,15 @@ function ContactForm({ onSubmit }) {
         return;
     }
   };
-
   const handleSubmit = event => {
     event.preventDefault();
     onSubmit({ name, number });
     resetForm();
   };
-
   const resetForm = () => {
     setName('');
     setNumber('');
   };
-
   return (
     <Form onSubmit={handleSubmit}>
       <label htmlFor={nameInputId}>
@@ -68,11 +63,8 @@ function ContactForm({ onSubmit }) {
     </Form>
   );
 }
-
 ContactForm.propTypes = { onSubmit: PropTypes.func.isRequired };
-
 const mapDispatchToProps = dispatch => ({
   onSubmit: value => dispatch(addContact(value)),
 });
-
 export default connect(null, mapDispatchToProps)(ContactForm);

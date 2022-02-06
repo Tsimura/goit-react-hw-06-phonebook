@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { ImUserMinus } from 'react-icons/im';
-
 const ContactListItem = ({ id, name, number, onDelete }) => {
   return (
     <>

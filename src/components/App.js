@@ -1,7 +1,7 @@
 import { Toaster } from 'react-hot-toast';
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from 'components/ContactList/ContactList';
-import Filter from 'components/Filter/Filter';
+import ContactForm from './ContactForm';
+import ContactList from 'components/ContactList';
+import Filter from 'components/Filter';
 import { AppWrapper, WorkingSpace } from './App.styled';
 export default function App() {
   return (
@@ -27,5 +27,3 @@ export default function App() {
     </AppWrapper>
   );
 }
-
-//добавити container , розділити логіку + default index.js!!!
