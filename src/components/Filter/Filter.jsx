@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { FilterWrapper } from './Filter.styled.jsx';
-import { changeFilter } from '../redux/contacts/contacts-actions';
+import { changeFilter } from '../../redux/contacts/contacts-actions';
 const Filter = ({ value, onChangeFilter }) => {
   return (
     <FilterWrapper>

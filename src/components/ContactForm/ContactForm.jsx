@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import shortid from 'shortid';
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { addContact } from '../redux/contacts/contacts-actions';
+import { addContact } from '../../redux/contacts/contacts-actions';
 import { Form } from './ContactForm.styled';
 function ContactForm({ onSubmit }) {
   const [name, setName] = useState('');
